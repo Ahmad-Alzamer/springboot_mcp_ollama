@@ -30,12 +30,12 @@ spring:
           servers-configuration: classpath:/mcp-servers-config-no-playwright.json
           connections:
             email:
-              command: D:\code\projects\golang\MCP_Server_SMTP_client\MCP_Server_SMTP_client.exe
+              command: ${path_to_go_project}\MCP_Server_SMTP_client.exe
               args:
               env:
                 smtp_user: ${smtp_user}
                 smtp_password: ${smtp_password}
-                debug_mode: true
+                debug_mode: ${debug_mode}
 
     ollama:
       base-url: http://localhost:11434
