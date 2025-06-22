@@ -1,0 +1,77 @@
+
+spring:
+  application:
+    name: springboot_rest_mcp
+
+  cassandra:
+    local-datacenter: datacenter1
+
+  ai:
+    vectorstore:
+      qdrant:
+        host: localhost
+        port: 6334 # this is for gRPC port.
+        use-tls: false
+        initialize-schema: true
+    chat:
+      memory:
+        repository:
+          cassandra:
+            time-to-live:  24H
+    mcp:
+      client:
+        enabled: true
+        name: mcp-client
+        version: 1.0.0
+        type: SYNC  # or ASYNC for reactive applications
+        request-timeout: 20s
+        root-change-notification: true
+        stdio:
+          servers-configuration: classpath:/mcp-servers-config-no-playwright.json
+          connections:
+            email:
+              command: D:\code\projects\golang\MCP_Server_SMTP_client\MCP_Server_SMTP_client.exe
+              args:
+              env:
+                smtp_user: ${smtp_user}
+                smtp_password: ${smtp_password}
+                debug_mode: true
+
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        model: deepseek-coder-v2:16b
+      embedding:
+        model: mxbai-embed-large:latest #default value used by qdrant vector store. added here for clarity. this will be used to transform the document's text into embeddings before storing them
+
+server:
+  port: 8089
+logging:
+  level:
+    com.alzamer: trace
+    org.springframework.ai.model.tool: trace
+    org.springframework.ai.chat.client.advisor: trace
+
+management:
+  info:
+    env:
+      enabled: true
+    git:
+      mode: full
+    java:
+      enabled: true
+
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,info,metrics
+      cors:
+        allowed-origins: "*"
+        allowed-headers: "*"
+        allowed-methods: "*"
+
+info:
+  app:
+    name: MCP example
+    description: just an example for a spring boot AI Agent with access to some MCP tools
+    version: 0.0.1
