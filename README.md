@@ -19,10 +19,10 @@ please note that the code is using gmail's smtp server
     npm run dev
     ```
 4. run the java application. however, please note that you need to set the below env variables
-    path_to_go_project=<path to the root folder of the folder where you extracted the git repo>
-    smtp_password=<app password from Google>
-    smtp_user=<your email with gmail>
-    debug_mode=<true if you want the go smtp MCP server to print debugging statements>
+    * path_to_go_project=<path to the root folder of the folder where you extracted the git repo>
+    * smtp_password=<app password from Google>
+    * smtp_user=<your email with gmail>
+    * debug_mode=<true if you want the go smtp MCP server to print debugging statements>
 
 
 
