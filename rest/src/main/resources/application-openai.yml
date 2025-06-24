@@ -1,0 +1,14 @@
+spring:
+  ai:
+    model:
+      chat: openai
+      embedding: openai
+      audio:
+        speech: openai
+        transcription: openai
+      image: openai
+      moderation: openai
+
+
+    openai:
+      api-key: ${openai_api_key}

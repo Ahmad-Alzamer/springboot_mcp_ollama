@@ -26,13 +26,18 @@ repositories {
 ext {
     set('springAiVersion', "1.0.0")
     set('springCloudVersion', "2025.0.0")
+    isOllama = System.getenv('profile') == 'ollama'
+    isOpenAi = System.getenv('profile') == 'openai'
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.ai:spring-ai-starter-mcp-client'
-    implementation 'org.springframework.ai:spring-ai-starter-model-ollama'
+//    if(isOllama)
+        implementation 'org.springframework.ai:spring-ai-starter-model-ollama'
+//    if(isOpenAi)
+        implementation 'org.springframework.ai:spring-ai-starter-model-openai'
     implementation 'org.springframework.ai:spring-ai-starter-model-chat-memory-repository-cassandra'
     implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
     implementation 'org.springframework.ai:spring-ai-starter-vector-store-qdrant'

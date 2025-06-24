@@ -37,12 +37,7 @@ spring:
                 smtp_password: ${smtp_password}
                 debug_mode: ${debug_mode}
 
-    ollama:
-      base-url: http://localhost:11434
-      chat:
-        model: deepseek-coder-v2:16b
-      embedding:
-        model: mxbai-embed-large:latest #default value used by qdrant vector store. added here for clarity. this will be used to transform the document's text into embeddings before storing them
+
 
 server:
   port: 8089

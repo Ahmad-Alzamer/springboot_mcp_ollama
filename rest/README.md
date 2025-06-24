@@ -21,3 +21,13 @@ or simply connect to it using the DB pane within Intellij
 
 # Todo
 1. look into using CassandraChatMemoryMessage to keep message in Cassandra DB for 1 day only but you can keep as much as you want.
+
+
+
+# Note
+added option to use openAI as the AI's LLM model
+this is done by introducing two profiles:
+1. ollama
+2. openai
+
+if you want to use openai, then you need to provide the openAI key in the env var ``openai_api_key``
