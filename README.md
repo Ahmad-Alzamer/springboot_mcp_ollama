@@ -18,7 +18,7 @@ please note that the code is using gmail's smtp server
     npm i
     npm run dev
     ```
-4. run the java application. however, please note that you need to set the below env variables
+4. run the java application. however, please note that you need to set the below env variables if you want to have the SMTP MCP server running
     * path_to_go_project= #path to the root folder of the folder where you extracted the git repo
     * smtp_password= #app password from Google
     * smtp_user= #your email with gmail
